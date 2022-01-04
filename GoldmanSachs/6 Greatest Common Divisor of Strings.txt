@@ -1,0 +1,9 @@
+ string gcdOfStrings(string str1, string str2) {
+        string s = str1+str2;
+        string s1 = str2+str1;
+        
+        if(s == s1){
+            return str1.substr(0,__gcd(str1.length(), str2.length()));
+        }
+      return "";
+    }
