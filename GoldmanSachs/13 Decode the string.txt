@@ -1,0 +1,25 @@
+ string helper(int &i ,string s){
+        string word ="";
+        int num=0;
+        for(; i< s.length();i++){
+            if(s[i]  >= '0' && s[i] <='9'){
+                num =( num * 10) + s[i]-'0';
+            }else if(s[i] == '['){
+                string loc = helper(++i,s);
+                while(num != 0){
+                    word += loc;
+                    num--;
+                }
+            }else if(s[i] ==']'){
+                return word;
+            }else{
+                word += s[i];
+            }
+        }
+        return word;
+        
+    }
+    string decodedString(string s){
+            int i = 0;
+            return helper(i, s);
+    }
