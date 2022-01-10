@@ -1,0 +1,52 @@
+// { Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+
+
+class Solution{
+    public:
+    string helper(long long int n){
+        if(n <26){
+            if(n==0){
+                return "Z";
+            }
+            // cout << n <<endl;
+            string str ="";
+            str += ('A'+(n-1));
+            return str;
+        }
+        
+        string str ="";
+    //   cout << n<<" "<<n%26<<endl;
+       if(n%26 ==0)
+       str= helper((n/26)-1) +helper(n%26);
+       else
+       
+       str= helper((n/26)) +helper(n%26);
+        
+        return str;
+        
+    }
+    string colName (long long int n)
+    {
+        // your code here
+        string res ="";
+         res = helper(n);
+         return res;
+    }
+};
+
+// { Driver Code Starts.
+int main()
+{
+    int t; cin >> t;
+    while (t--)
+	{
+		long long int n; cin >> n;
+		Solution ob;
+		cout << ob.colName (n) << '\n';
+	}
+}
+  // } Driver Code Ends
